@@ -32,7 +32,7 @@ class _CreativeStitchingViewState extends State<CreativeStitchingView> {
                 type: FileType.image,
                 allowMultiple: true,
               );
-              amazingImageListNotifier.value = result?.files ?? [];
+              amazingImageListNotifier.value = sort(result?.files ?? []);
             },
             child: const Text('Pick'),
           ),
@@ -66,4 +66,6 @@ class _CreativeStitchingViewState extends State<CreativeStitchingView> {
       );
     }
   }
+
+    List<PlatformFile> sort(List<PlatformFile> list) => list..sort((a, b) => a.name.compareTo(b.name));
 }

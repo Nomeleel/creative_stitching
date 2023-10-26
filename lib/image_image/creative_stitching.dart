@@ -50,7 +50,9 @@ Future<List<image.Image>> _creativeStitching<T>(
     int resetHeight = math.max(resetTopHeight, resetBottomHeight);
     int height = resetHeight * 2 + width;
 
-    image.Image finalImage = image.Image(width: width, height: height); //..fill(0xFFFFFFFF);
+    image.Image finalImage = image.Image(width: width, height: height, numChannels: 4);
+
+    image.fill(finalImage, color: image.ColorUint8.rgba(255,255,255,255));
 
     image.compositeImage(
       finalImage,
